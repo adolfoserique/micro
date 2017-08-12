@@ -1,0 +1,77 @@
+Data: 11/08/2017
+
+
+
+1. Quais as diferenças entre os barramentos de dados e de endereços?
+
+R: Barramentos de dados é o barramento onde ocorre a troca de dados de um computador, tanto enviados quanto recebidos. 
+   Barramento de endereços indica o local onde os processos devem ser extraídos e para onde devem ser enviados após o processamento. 
+
+2. Quais são as diferenças entre as memórias RAM e ROM?
+
+R: A memória RAM (Random Access Memory) é aquela que permite a gravação e a regravação dos dados, no entanto, é uma memória volátil, o que resulta em perda dos cados caso ela seja desligada. 
+A memória ROM (Read Only Memory) é uma memória não-volátil que permite a gravação de dados uma única vez, não sendo possível apagar ou editar nenhuma informação, somente acessar a mesma dependendo do tipo de ROM. Esse tipo de memória também é bem mais lenta que a memória RAM.
+
+3. Considere o código abaixo:
+
+
+
+       #include <stdio.h>
+
+       int main(void)
+
+       {
+
+          int i;
+
+          printf("Insira um número inteiro: ");
+
+          scanf("%d", &i);
+
+          if(i%2)
+
+             printf("%d eh impar.\n");
+
+          else
+
+            printf("%d eh par.\n");
+
+         return 0;
+
+      }
+
+
+
+Para este código, responda:
+
+	(a) A variável 'i' é armazenada na memória RAM ou ROM? Por quê?
+
+         R: A variável é armazenada da RAM, pois o valor de i é descartável após o cálculo da divisão, importanto somente o resto da divisão que é o valor que o programa usa para decidadir se vai pra linha 8 ou 10.
+
+	(b) O programa compilado a partir deste código é armazenado na memória RAM ou ROM? Por quê?
+
+         R: O programa compilado é armazenado na memória ROM, pois pode ser preciso acessar o arquivo mesmo após o computador ser reeniciado.
+
+
+
+4. Quais são as diferenças, vantagens e desvantagens das arquiteturas Harvard e Von Neumann?
+
+R: Harvard: Caminhos de dados e de instrução distintos, dessa forma, seus componentes internos também estão dispostos em lugares distintos, o que a torna mais rápida porem mais complexa.
+Von Neumann: é processada uma única informação por vez, visto que nessa tecnologia, execução e dados percorrem o mesmo barramento, o que torna a arquitetura mais simples porém torna o processo lento em relação à arquitetura Harvard.
+principal diferença entre as duas arquiteturas é que a arquitetura Harvard separa o armazenamento e o trafego das instruções da CPU e dos dados em duas unidades distintas de memória, enquanto a Von Neumann utiliza o mesmo espaço de memória para ambos.
+
+
+5. Considere a variável inteira 'i', armazenando o valor 0x8051ABCD. Se 'i' é armazenada na memória a partir do endereço 0x0200, como ficam este byte e os seguintes, considerando que a memória é:
+
+	(a) Little-endian?
+
+         R: CD AB 51 80 cada valor escrito sucessivamente na memória.
+
+	(b) Big-endian?
+
+         R: 80 51 AB CD cada valor escrito sucessivamente na memória. 
+
+6. Sabendo que o processador do MSP430 tem registradores de 16 bits, como ele soma duas variáveis de 32 bits?
+
+R: Ambos os números são escritos em 2 registradores, um com os 8 bits menos significativos e o outro com os bits mais significativos, então soma os registradores com os bits menos significativos, se gerar carry, soma com qualquer registrador com os bits mais significativos.
+Por fim se soma os registradores com os bit mais significativos, se gerar carry, ele é gravado em outro registrador, assim gerando uma variável de 33 bits.
