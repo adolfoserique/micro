@@ -1,0 +1,59 @@
+int Divisao(int dividendo,int divisor)
+
+{
+
+	if(dividendo >= divisor)
+
+	{
+
+		dividendo -= divisor;
+
+		return (1 + Divisao(dividendo,divisor));
+
+	}
+
+	else
+
+		return 0;
+
+}
+
+
+
+int Raiz_Quadrada(float s)
+
+{
+
+	float x=0;
+
+	do 
+
+	{
+
+		if(x==0)
+
+		{
+
+			x=Divisao(s,2);
+
+			x = Divisao((x + Divisao(s,x)),2);
+
+		}
+
+		else
+
+		{
+
+			x = Divisao((x + Divisao(s,x)),2);
+
+		}
+
+	}
+
+	while((x - Divisao((x + Divisao(s,x)),2)) > 1);
+
+	
+
+	return x;
+
+}

@@ -1,0 +1,19 @@
+int MULT_signed(int a, int b)
+{    if(b<0)
+     {    a = -a;       
+          b = -b;    }    
+      return MULT_unsigned(a,b); 
+ }
+
+'-------------------------'
+
+MULT_signed: 
+tst.w R14                     ; b<0 ?
+jge MULT_signed_else          ; Se b>=0, não é necessário trocar sinais 
+inv.w R15                     ; a = -a usando complemento de 2 
+inc.w R15 
+inv.w R14                     ; b = -b usando complemento de 2 
+inc.w R14 
+MULT_signed_else: 
+call MULT_unsigned 
+ret                          ;  Retorne da subrotina

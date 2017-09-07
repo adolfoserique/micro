@@ -1,0 +1,19 @@
+int Fatorial(int n) 
+{    if(n<2) return 1;    
+     else 
+     return n*Fatorial(n-1); 
+}
+
+'----------------'
+
+Fatorial: cmp #2, R15         ; Testar se n<2
+jge L1                        ; Se N>=2, pule para L1 
+mov.w #1, R15                 ; return 1; 
+ret                           ; Retorne para onde a função foi chamada 
+L1: push.w R15                ; Guarde n (R15) na pilha 
+dec.w R15                     ; Calcule n-1 para 
+call Fatorial                 ; chamar Fatorial(n-1) 
+pop.w R14                     ; Recupere n na pilha 
+call MULT_signed              ; Calcular n*Fatorial(n-1) 
+ret                           ; Retorne para onde a função foi chamada
+
